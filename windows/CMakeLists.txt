@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(challenge LANGUAGES CXX)
+project(recipes LANGUAGES CXX)
 
-set(BINARY_NAME "challenge")
+set(BINARY_NAME "recipes")
 
 cmake_policy(SET CMP0063 NEW)
 
