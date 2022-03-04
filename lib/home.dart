@@ -1,4 +1,5 @@
 import 'package:challenge/widgets/card1.dart';
+import 'package:challenge/widgets/card2.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
      const Card1(),
-    Container(color: Colors.green),
+    const Card2(),
     Container(
       color: Colors.blue,
     )
