@@ -29,14 +29,23 @@ class HeroRecipe extends StatelessWidget {
                 children: [
                   Container(
                     child: const Text('Pork'
-                    ,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    ,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white)),
                     ),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.favorite))
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.favorite),iconSize: 25, color: Colors.white,),
                 ],
               ),
-              Container(
-               child:  const Text(
-                  'Crips Salad with Chicken',
+              Positioned(
+                bottom: -10.0,
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration:  BoxDecoration(
+                   color: Colors.white,
+                   borderRadius:  BorderRadius.circular(15.0),
+                   ),
+                 child:  const Text(
+                    'Crips Salad with Chicken',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
+                  ),
                 ),
               )
             ],
