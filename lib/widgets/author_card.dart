@@ -3,11 +3,20 @@ import 'package:flutter/material.dart';
 
 import '../theme/fooderlichTheme.dart';
 
-class AuthorCard extends StatelessWidget {
+class AuthorCard extends StatefulWidget {
   const AuthorCard({Key? key, required this.authorName, required this.title, required this.imageProvider}) : super(key: key);
   final String authorName;
  final String title;
  final ImageProvider imageProvider;
+  bool _isFavorited = false;
+
+  @override
+  //store state  mutable data 
+// that can change over the lifetime of the widget.
+  State<AuthorCard> createState() => _AuthorCardState(
+      );
+}
+class _AuthorCardState extends State<AuthorCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +26,7 @@ class AuthorCard extends StatelessWidget {
         children:  [
            Row(
              children: [
-               CircleImage(imageProvider:imageProvider, imageRadius: 
+               CircleImage(imageProvider:widget.imageProvider, imageRadius: 
 28),
 const SizedBox(width: 8),
                 Column(
