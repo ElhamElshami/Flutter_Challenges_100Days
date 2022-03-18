@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import '../theme/fooderlichTheme.dart';
 
 class AuthorCard extends StatefulWidget {
-  const AuthorCard({Key? key, required this.authorName, required this.title, required this.imageProvider}) : super(key: key);
+   const AuthorCard({Key? key, required this.authorName, required this.title, required this.imageProvider}) : super(key: key);
   final String authorName;
  final String title;
  final ImageProvider imageProvider;
-  bool _isFavorited = false;
 
   @override
   //store state  mutable data 
@@ -17,6 +16,7 @@ class AuthorCard extends StatefulWidget {
       );
 }
 class _AuthorCardState extends State<AuthorCard> {
+  bool _isFavorited = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,10 +47,16 @@ const SizedBox(width: 8),
             IconButton(onPressed: (){
               //for what??snackbar is useful to briefly display information to users when an 
               // action has taken place
+              setState(() {
+                    _isFavorited = !_isFavorited;
+                    });
               const snackBar = SnackBar(content: Text('Press Favorite'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            }, icon: const Icon(Icons.favorite_border),iconSize: 30,
- color: Colors.grey[400],)
+            },
+             icon:  Icon(_isFavorited? Icons.favorite:Icons.favorite_border),
+             iconSize: 30,
+             color: Colors.grey[400],
+            ),
         ],
       ),
     );

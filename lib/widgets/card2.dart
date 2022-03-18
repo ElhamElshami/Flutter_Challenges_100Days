@@ -17,7 +17,7 @@ class Card2 extends StatelessWidget {
       ),
       child:  Column(
         children:  [
-          const AuthorCard(authorName: 'Mike Katz',title: 'Smoothie Connoisseur',imageProvider:NetworkImage('https://freerangestock.com/sample/116135/handsome-man-avatar-.jpg')),
+           AuthorCard(authorName: 'Mike Katz',title: 'Smoothie Connoisseur',imageProvider:const NetworkImage('https://freerangestock.com/sample/116135/handsome-man-avatar-.jpg')),
           Expanded(
  child: Stack(
  children: [
