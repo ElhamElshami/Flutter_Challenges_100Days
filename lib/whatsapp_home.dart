@@ -23,10 +23,16 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
     // TODO: implement build
         return Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColor,
           title: const Text('WhatsApp'),
-          actions: const [Icon(Icons.search), Icon(Icons.more_vert)],
-          elevation: 0.0,
+          actions:  const [
+            Icon(Icons.search),
+            Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
+             Icon(Icons.more_vert)
+             ],
+          elevation: 0.7,
           bottom:  TabBar(
+            indicatorColor: Colors.white,
             controller: _tabController,
             tabs: const [
             Tab(
@@ -48,6 +54,15 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           children: [
             CameraScreen(),
             ChatScreen(), StatusScreen(), const CallScreen()],
-        ));
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(
+            Icons.message,
+            color: Colors.white,
+          ),
+          onPressed: () => print('open chats'),
+        ),
+
+        );
   }
 }
