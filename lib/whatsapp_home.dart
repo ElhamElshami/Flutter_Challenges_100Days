@@ -1,4 +1,5 @@
 import 'package:challenge/Screens/calls_screen.dart';
+import 'package:challenge/Screens/camera_screen.dart';
 import 'package:challenge/Screens/chat_screen.dart';
 import 'package:challenge/Screens/status_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +11,8 @@ class WhatsAppHome extends StatefulWidget {
 
 class _WhatsAppHomeState extends State<WhatsAppHome>
     with SingleTickerProviderStateMixin {
-   TabController _tabController;
-
-  @override
+   late TabController _tabController;
+    @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
@@ -25,7 +25,10 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         appBar: AppBar(
           title: const Text('WhatsApp'),
           actions: const [Icon(Icons.search), Icon(Icons.more_vert)],
-          bottom: const TabBar(tabs: [
+          elevation: 0.0,
+          bottom:  TabBar(
+            controller: _tabController,
+            tabs: const [
             Tab(
               icon: Icon(Icons.camera_alt),
             ),
@@ -42,7 +45,9 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         ),
         body: TabBarView(
           controller: _tabController,
-          children: [ChatScreen(), StatusScreen(), const CallScreen()],
+          children: [
+            CameraScreen(),
+            ChatScreen(), StatusScreen(), const CallScreen()],
         ));
   }
 }
